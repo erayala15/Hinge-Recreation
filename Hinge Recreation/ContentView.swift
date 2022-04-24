@@ -12,37 +12,42 @@ let gray = UIColor(red: 240, green: 240, blue: 240)
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Color(gray)
-                .ignoresSafeArea()
-            ScrollView {
-                HStack {
-                    Spacer()
-                    
-                    Image(systemName: "arrow.uturn.backward")
-                        .font(.title2)
-//                    NavigationLink(destination: PreferencesView(), label: {
-//                        Image(systemName: "slider.horizontal.3")
-//                    })
-                    Image(systemName: "slider.horizontal.3")
-                        .font(.title2)
-                        .padding([.leading, .trailing])
+        NavigationView {
+            ZStack {
+                Color(gray)
+                    .ignoresSafeArea()
+                ScrollView {
+                    HStack {
+                        Spacer()
+                        
+                        Image(systemName: "arrow.uturn.backward")
+                            .font(.title2)
+                        
+                        NavigationLink(destination: PreferencesView(), label: {
+                            Image(systemName: "slider.horizontal.3")
+                                .font(.title2)
+                                .foregroundColor(.black)
+                                .padding([.leading, .trailing])
+                        })
+                        
+                    }
+                    Name(name: "Raheel", pronouns: "he/him/his")
+                    Picture(picName: "raheel 1")
+                    TextBox(prompt: "Don't hate me if I", answer: "am too cute")
+                    CompleteProfile(age: "19", height: "5' 8", sexuality: "Straight", location: "Chapel Hill", school: "UNC Chapel Hill", religion: "Muslim", home: "Cary, NC")
+                        .padding(.top)
+                    Picture(picName: "raheel 2")
+                    TextBox(prompt: "I won't shut up about", answer: "myself being so cute")
+                    Picture(picName: "raheel 5")
+                    Picture(picName: "raheel 4")
+                    TextBox(prompt: "I'll fall for you if", answer: "you are cute like me")
                 }
-                Name(name: "Raheel", pronouns: "he/him/his")
-                Picture(picName: "raheel 1")
-                TextBox(prompt: "Don't hate me if I", answer: "am too cute")
-                CompleteProfile(age: "19", height: "5' 8", sexuality: "Straight", location: "Chapel Hill", school: "UNC Chapel Hill", religion: "Muslim", home: "Cary, NC")
-                    .padding(.top)
-                Picture(picName: "raheel 2")
-                TextBox(prompt: "I won't shut up about", answer: "myself being so cute")
-                Picture(picName: "raheel 5")
-                Picture(picName: "raheel 4")
-                TextBox(prompt: "I'll fall for you if", answer: "you are cute like me")
+                Image(systemName: "x.circle")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .position(x: 50, y: 700)
             }
-            Image(systemName: "x.circle")
-                .resizable()
-                .frame(width: 60, height: 60)
-                .position(x: 50, y: 700)
+            .navigationBarHidden(true)
         }
     }
 }
